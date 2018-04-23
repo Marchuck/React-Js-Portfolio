@@ -1,30 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import './font-awesome.min.css';
-//import './materialize.min.css';
-
-class PortfolioComponent extends React.Component{
-  render(){
-      return (<button>PortfolioComponent</button>)
-  }
-}
-class AboutComponent extends React.Component{
-  render(){
-      return (<button>AboutComponent</button>)
-  }
-}
-class SocialComponent extends React.Component{
-  render(){
-      return (<button>SocialComponent</button>)
-  }
-}
+import './about/about.css';
+import PortfolioComponent from './portfolio/PortfolioComponent.js';
+import AboutComponent from './about/AboutComponent.js';
+import SocialComponent from './social/SocialComponent.js';
 
 
 class MenuItem extends React.Component{
 
-  toggleState(state){
-    if (state) {
+  toggleState(clicked){
+    if (clicked) {
       return "menu-item-clicked";
     }else{
       return "menu-item";
@@ -109,7 +95,6 @@ class Board extends React.Component {
     );
   }
 }
-
 
 // ========================================
 

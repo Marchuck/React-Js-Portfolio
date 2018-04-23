@@ -1,0 +1,11 @@
+
+.row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.row {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
