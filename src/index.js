@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import './about/about.css';
 import PortfolioComponent from './portfolio/PortfolioComponent.js';
@@ -100,7 +99,5 @@ class Board extends React.Component {
 // ========================================
 
 render((
-  <BrowserRouter>
     <Board />
-  </BrowserRouter>
 ), document.getElementById('root'));
