@@ -22,7 +22,7 @@ class PortfolioComponent extends React.Component{
                         <div>
                         {year.projects.map(
                             project => <li className="project">
-                                    <ProjectItem description={project.name} image="https://image.flaticon.com/icons/svg/25/25231.svg" />
+                                    <ProjectItem description={project.name} images={project.screenshots} />
 
                                     </li>
                         )}

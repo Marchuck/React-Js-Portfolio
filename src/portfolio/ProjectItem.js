@@ -6,8 +6,11 @@ class ProjectItem extends React.Component{
     return (
       <div className="board-row">
 
-      <div>{this.props.description}</div>
-      <img src={this.props.image} alt="image" width="100" height="100" />
+      <div className="portfolio-description">{this.props.description}</div>
+
+      <div  className="board-row">
+    {  this.props.images.map(photo =>  <img className="portfolio-image" src={photo} alt="image" width="216" height="384" />) }
+      </div>
 
     </div>)
   }

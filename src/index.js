@@ -70,7 +70,7 @@ class Board extends React.Component {
    if (i===0) {
      return <PortfolioComponent />;
    }else if (i===1) {
-     return <AboutComponent />;
+     return <AboutComponent email="lukmardev@gmail.com"/>;
    }else{
      return <SocialComponent />;
    }

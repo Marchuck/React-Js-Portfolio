@@ -11,3 +11,11 @@
   font-size: 17px;
   list-style-type: none;
 }
+
+.portfolio-image {
+
+  padding: 10px;
+}
+.portfolio-description{
+  padding: 10px;
+}
