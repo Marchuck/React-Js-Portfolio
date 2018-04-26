@@ -5,64 +5,44 @@ import './about/about.css';
 import PortfolioComponent from './portfolio/PortfolioComponent.js';
 import AboutComponent from './about/AboutComponent.js';
 import SocialComponent from './social/SocialComponent.js';
+import MenuItem from './menu/MenuItem.js';
 
-
-class MenuItem extends React.Component{
-
-  toggleState(clicked){
-    if (clicked) {
-      return "menu-item-clicked";
-    }else{
-      return "menu-item";
-    }
-  }
-
-  render() {
-    return (
-      <button className={this.toggleState(this.props.selected)}
-              onClick={this.props.onClick}>
-                  {this.props.title}
-      </button>
-           );
-  }
-}
+var selectedIndex = 0;
 
 class Board extends React.Component {
 
   constructor(props) {
    super(props);
    this.state = {
-    items: [
-      { title: "Portfolio", selected: true},
-      { title: "About", selected: false},
-      { title: "Social", selected: false},
-    ]
+    items: this.selectItemAndGetItems(selectedIndex)
    };
+ }
+
+ selectItemAndGetItems(selectedIndex){
+   return [
+     { 'title': "Portfolio", 'selected': 0 === selectedIndex, 'index': 0},
+     { 'title': "About", 'selected': 1 === selectedIndex, 'index': 1},
+     { 'title': "Social", 'selected': 2 === selectedIndex, 'index': 2},
+   ];
  }
 
  renderMenuItem(i) {
    return <MenuItem title={this.state.items[i].title}
                     selected={this.state.items[i].selected}
-                    onClick={()=>{
-                      console.log("clicked: "+i)
-                      this.setState({
-                      items: [
-                        { title: "Portfolio", selected: i===0},
-                        { title: "About", selected: i===1},
-                        { title: "Social", selected: i===2},
-                            ]
-                          })
-                                }
+                    onClick={()=>
+                              {
+                                this.setState({ items: this.selectItemAndGetItems(i) })
+                              }
                             }
-        />;
+           />;
  }
 
  renderCurrentComponent(){
     for (var i = 0; i < this.state.items.length; i++) {
-          if(this.state.items[i].selected){
-              return this.renderComponent(i);
-          }
-    }
+           if(this.state.items[i].selected){
+               return this.renderComponent(i);
+           }
+     }
  }
 
  renderComponent(i){
@@ -75,17 +55,18 @@ class Board extends React.Component {
    }
  }
 
-
-  render() {
+render() {
     const status = 'Welcome to my page';
 
     return (
       <div>
         <div className="status">{status}</div>
         <div className="board-row">
-          {this.renderMenuItem(0)}
-          {this.renderMenuItem(1)}
-          {this.renderMenuItem(2)}
+
+        {this.renderMenuItem(0)}
+        {this.renderMenuItem(1)}
+        {this.renderMenuItem(2)}
+
         </div>
         <div className="board-row">
           {this.renderCurrentComponent()}
