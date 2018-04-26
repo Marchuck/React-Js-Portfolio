@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import './about/about.css';
 import PortfolioComponent from './portfolio/PortfolioComponent.js';
@@ -33,8 +34,8 @@ class Board extends React.Component {
    super(props);
    this.state = {
     items: [
-      { title: "Portfolio", selected: false},
-      { title: "About", selected: true},
+      { title: "Portfolio", selected: true},
+      { title: "About", selected: false},
       { title: "Social", selected: false},
     ]
    };
@@ -98,7 +99,8 @@ class Board extends React.Component {
 
 // ========================================
 
-ReactDOM.render(
-  <Board />,
-  document.getElementById('root')
-);
+render((
+  <BrowserRouter>
+    <Board />
+  </BrowserRouter>
+), document.getElementById('root'));

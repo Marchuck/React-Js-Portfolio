@@ -5,7 +5,10 @@ class SocialItem extends React.Component{
       return (
         <div className="board-row">
         <img src={this.props.image} alt="image" width="72" height="72" onClick={this.props.onClick}/>
-         <div >{this.props.name}</div>
+           <div >
+              <a target="_blank" href={this.props.url}>{this.props.name}</a>
+
+             </div>
       </div>)
   }
 }
